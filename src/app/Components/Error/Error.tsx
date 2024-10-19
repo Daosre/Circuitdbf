@@ -1,11 +1,9 @@
-import React from 'react'
-
-const Error = () => {
+const ErrorMsg = (errorName: { error: string }) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <p className="text-red-500 text-lg italic">
+      The field {errorName.error} is required
+    </p>
+  );
+};
 
-export default Error
+export default ErrorMsg;

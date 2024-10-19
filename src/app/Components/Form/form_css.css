@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+.placeholder_style {
+  font-weight: bold;
+  font-size: 10px;
+  border-radius: 10px;
+  text-align: start;
+  width: 221px;
+  height: 28px;
+  filter: drop-shadow(0 2px 2px #212121);
+}
+
+.form_signIn {
+  width: 290px;
+  height: 306px;
+  background-color: #fef4f4;
+  color: #212121;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.password_missing {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 10px;
+  color: #212121;
+  opacity: 60%;
+}

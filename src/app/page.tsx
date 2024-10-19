@@ -1,3 +1,9 @@
+import SignIn_Form from "./Components/Form/SignIn_Form";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <SignIn_Form />
+    </div>
+  );
 }
