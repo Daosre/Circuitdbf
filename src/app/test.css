@@ -1,0 +1,14 @@
+.fond_de_page {
+  background-image: url(../../public/bg.jpeg);
+}
+
+.titre_connexion {
+  color: #212121;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 30px;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}

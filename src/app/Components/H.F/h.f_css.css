@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+.header {
+  background-color: #f2f2f2;
+  border-color: #212121;
+  width: 355px;
+  height: 169px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px #212121;
+}
+
+.h2 {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
