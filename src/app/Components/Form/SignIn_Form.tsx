@@ -26,7 +26,6 @@ const SignIn_Form = () => {
     if (validate)
       signIn(data)
         .then((res) => {
-          console.log(res);
           window.localStorage.setItem("token", res.data.token.access_token);
           window.localStorage.setItem("Role", res.data.role.id);
           toast.success("Login Successful ✅", {
@@ -36,10 +35,7 @@ const SignIn_Form = () => {
           setTimeout(() => {
             push("/SignUp");
           }, 1500);
-        })
-        .catch((e) => {
-          toast.error(e.response.data.message);
-        });
+        }).catch((e) => toast(e))
   };
   return (
     <form

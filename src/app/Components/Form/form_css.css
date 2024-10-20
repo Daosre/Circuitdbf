@@ -4,7 +4,7 @@
   font-weight: bold;
   font-size: 10px;
   border-radius: 10px;
-  text-align: start;
+  text-align: center;
   width: 221px;
   height: 28px;
   filter: drop-shadow(0 2px 2px #212121);
@@ -21,6 +21,22 @@
   font-style: normal;
 }
 
+.form_SignUp {
+  background-color: #fef4f4;
+  color: #212121;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.label_style{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+}
 .password_missing {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
@@ -39,6 +55,13 @@
   font-size: 16px;
   padding: 6px;
   box-shadow: 0 4px 2px #212121;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.title {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: bold;

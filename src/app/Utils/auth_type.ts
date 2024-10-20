@@ -8,4 +8,6 @@ export type signUp_Props = {
   firstName: string
   lastName: string
   password: string
+  confirm_password: string
+  checkbox: boolean
 }
