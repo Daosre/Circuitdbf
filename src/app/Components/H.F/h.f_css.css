@@ -15,3 +15,10 @@
   font-weight: bold;
   font-style: normal;
 }
+
+.font_family {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+}
