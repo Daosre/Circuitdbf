@@ -1,6 +1,5 @@
 "use client";
-import { signIn } from "@/app/Services/auth";
-import { signIn_Props } from "@/app/Utils/auth_type";
+import { signIn_Props } from "@/Utils/auth_type";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ErrorMsg from "../Error/Error";
 import "../Form/form_css.css";
+import { signIn } from "@/Services/auth";
 
 const SignIn_Form = () => {
   const { push } = useRouter();
@@ -35,12 +35,13 @@ const SignIn_Form = () => {
           setTimeout(() => {
             push("/SignUp");
           }, 1500);
-        }).catch((e) => toast(e))
+        })
+        .catch((e) => toast(e));
   };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-center gap-2 items-center form_signIn rounded"
+      className="flex flex-col justify-center gap-2 items-center form_signIn rounded p-4 md:w-96 lg:w-[600px]"
     >
       <label htmlFor="Email" className="flex flex-col items-center">
         Email :
