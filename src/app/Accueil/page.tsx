@@ -22,24 +22,28 @@ const page = () => {
         <RxHamburgerMenu className="text-2xl" />
         <p className="font_family">Menu</p>
       </div>
-      <section className="bg-[#F2F2F2] w-64 rounded-[10px] flex flex-col items-center p-4 border-[0.5px] border-[#212121] mt-5 md:w-96 lg:w-[600px]">
+      <section className="bg-[#F2F2F2] w-64 rounded-[10px] flex flex-col justify-center gap-10 items-center p-4 border-[0.5px] border-[#212121] mt-5 md:w-96 lg:w-[1000px] lg:h-[400px] lg:flex-row">
         <Image
-          width={400}
-          height={400}
+          width={300}
+          height={300}
           src={"/piste.jpg"}
           alt=""
-          className="rounded-[10px] md:w-80 lg:w-96"
+          className="rounded-[10px] md:w-80 lg:w-96 lg:h-[325px]"
         />
-        <article className="bg-[#FCBFBF] text-[#212121] p-2 rounded-[10px] mt-2 md:w-80 lg:w-96">
+        <article className="bg-[#FCBFBF] text-[#212121] p-2 rounded-[10px] md:w-80 lg:h-[350px]  xl:h-[355px]">
           <h2 className="font-bold text-center m-2">Ouverture du circuit</h2>
-          <h3 className="font-bold">Horaires du circuit :</h3>
-          <li>Lundi : 9h00 - 12h00</li>
-          <li>Mardi : 9h00 - 12h00</li>
-          <li>Mercredi : 9h00 - 12h00</li>
-          <li>Jeudi : 9h00 - 12h00</li>
-          <li>Vendredi : 9h00 - 12h00 / 13h30 - 18h00</li>
-          <li>Samedi : 9h00 - 12h00 / 13h30 - 18h00</li>
-          <li>Dimanche : 9h00 - 12h00 / 13h30 - 18h00</li>
+          <h3 className=" underline lg:text-center lg:m-2">
+            Horaires du circuit :
+          </h3>
+          <ul className="lg:text-center">
+            <li>Lundi : 9h00 - 12h00</li>
+            <li>Mardi : 9h00 - 12h00</li>
+            <li>Mercredi : 9h00 - 12h00</li>
+            <li>Jeudi : 9h00 - 12h00</li>
+            <li>Vendredi : 9h00 - 12h00 / 13h30 - 18h00</li>
+            <li>Samedi : 9h00 - 12h00 / 13h30 - 18h00</li>
+            <li>Dimanche : 9h00 - 12h00 / 13h30 - 18h00</li>
+          </ul>
         </article>
       </section>
       <section className="bg-[#F2F2F2] w-64 rounded-[10px] flex flex-col items-center p-4 border-[0.5px] border-[#212121] mt-5 md:w-96 lg:w-[600px]">
@@ -60,7 +64,7 @@ const page = () => {
         </article>
         <button
           onClick={() => push("/Selection")}
-          className="bg-[#fd3131] rounded-[10px] text-[#F2F2F2] mt-2 btn_Form"
+          className="bg-[#fd3131] rounded-[10px] text-[#F2F2F2] mt-2 btn_Form lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 lg:duration-1000"
         >
           Voir la sélection
         </button>
