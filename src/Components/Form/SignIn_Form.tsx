@@ -1,4 +1,5 @@
 "use client";
+import { signIn } from "@/Services/auth";
 import { signIn_Props } from "@/Utils/auth_type";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -8,7 +9,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ErrorMsg from "../Error/Error";
 import "../Form/form_css.css";
-import { signIn } from "@/Services/auth";
 
 const SignIn_Form = () => {
   const { push } = useRouter();
@@ -87,7 +87,7 @@ const SignIn_Form = () => {
       </button>
       <p className="password_missing">
         Vous êtes pas inscrit ? Cliquer{" "}
-        <Link href="#" className="text-red-600">
+        <Link href="/SignUp" className="text-red-600">
           ici
         </Link>
       </p>

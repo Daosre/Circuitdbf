@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+.titre_connexion {
+  color: #212121;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 30px;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+.font_family{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+.btn_Form {
+  background-color: #fd3131;
+  width: 70%;
+  color: #F2F2F2;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 6px;
+  box-shadow: 0 4px 2px #212121;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}

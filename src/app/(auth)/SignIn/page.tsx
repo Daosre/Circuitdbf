@@ -2,6 +2,7 @@
 import SignIn_Form from "@/Components/Form/SignIn_Form";
 import Footer from "@/Components/H.F/Footer";
 import Header from "@/Components/H.F/Header";
+import "../../style.css";
 
 const signIn = () => {
   return (

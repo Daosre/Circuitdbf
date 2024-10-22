@@ -2,7 +2,6 @@
 import SignUp_Form from "@/Components/Form/SignUp_Form";
 import Footer from "@/Components/H.F/Footer";
 import Header from "@/Components/H.F/Header";
-import "../../test.css";
 
 const signUp = () => {
   return (
