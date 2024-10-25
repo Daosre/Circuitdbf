@@ -2,7 +2,9 @@
 "use client";
 import Footer from "@/Components/H.F/Footer";
 import Header from "@/Components/H.F/Header";
+import Admin_Modal from "@/Components/Modal/Admin_Modal";
 import Modal from "@/Components/Modal/Modal";
+import User_Modal from "@/Components/Modal/User_Modal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,6 +14,7 @@ import "../style.css";
 const page = () => {
   const [showModal, setShowModal] = useState(false);
   const { push } = useRouter();
+  const Role = window.localStorage.getItem("Role");
   return (
     <div className="flex flex-col items-center bg-[url('/bg.jpeg')] bg-cover bg-no-repeat md:bg-no-repeat md:bg-cover md:bg-center lg:bg-no-repeat lg:bg-cover lg:bg-center ">
       <Header />
@@ -70,7 +73,20 @@ const page = () => {
         </button>
       </section>
       <Footer />
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+      \\Be careful here i dont explain what i do for modal
+      {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+        <Admin_Modal
+        isVisible={showModal}
+        onClose={() => setShowModal(false)}
+      />
+      )  :
+      Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+        <User_Modal
+        isVisible={showModal}
+        onClose={() => setShowModal(false)}
+      />
+      ):
+      <Modal isVisible={showModal} onClose={() => setShowModal(false)} />}
     </div>
   );
 };

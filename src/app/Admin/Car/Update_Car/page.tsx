@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Create_Car = () => {
+const page = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Create_Car = () => {
   )
 }
 
-export default Create_Car
+export default page
