@@ -69,7 +69,7 @@ export async function deleteCar(id: string) {
       "content-type": "application/json;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      Authorization: `Bearer ${window.localStorage.getItem("jwt")}`,
+      Authorization: `Bearer ${window.localStorage.getItem("token")}`,
     },
   };
   return axios
@@ -98,7 +98,7 @@ export async function editCar(carProps: car_Props) {
       "content-type": "application/json;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      Authorization: `Bearer ${window.localStorage.getItem("jwt")}`,
+      Authorization: `Bearer ${window.localStorage.getItem("token")}`,
     },
   };
   return axios

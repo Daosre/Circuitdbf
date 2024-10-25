@@ -5,7 +5,7 @@ import Header from "@/Components/H.F/Header";
 import Admin_Modal from "@/Components/Modal/Admin_Modal";
 import Modal from "@/Components/Modal/Modal";
 import User_Modal from "@/Components/Modal/User_Modal";
-import { getAllCar } from "@/Services/car";
+import { deleteCar, getAllCar } from "@/Services/car";
 import { car_Props } from "@/Utils/car_type";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -13,12 +13,13 @@ import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../../style.css";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [showModal, setShowModal] = useState(false);
   const Role = window.localStorage.getItem("Role");
   const [carAll, setCarAll] = useState<car_Props[]>();
-
+  const { push } = useRouter()
   useEffect(() => {
     getAllCar().then((res) => {
       setCarAll(res.data);
@@ -37,7 +38,9 @@ const page = () => {
       </div>
       <h1 className="text-[#212121] font-bold text-2xl m-2">Voitures</h1>
       <section className="m-2">
-        <button className="w-[200px] bg-[#FD3131] rounded-[10px] drop-shadow-[0_2px_3px_#212121] p-2 font_family">
+        <button className="w-[200px] bg-[#FD3131] rounded-[10px] drop-shadow-[0_2px_3px_#212121] p-2 font_family" onClick={() => {
+          push('/Admin/Car/Add_Car')
+        }}>
           Ajouter
         </button>
       </section>
@@ -53,7 +56,9 @@ const page = () => {
                   </Link>
                   <Link href={""}>
                     {" "}
-                    <RiDeleteBin6Line className="cursor-pointer" />
+                    <RiDeleteBin6Line className="cursor-pointer" onClick={() => {
+                      deleteCar(car.id)
+                    }} />
                   </Link>
                 </section>
               </div>
