@@ -73,20 +73,16 @@ const page = () => {
         </button>
       </section>
       <Footer />
-      \\Be careful here i dont explain what i do for modal
       {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
         <Admin_Modal
-        isVisible={showModal}
-        onClose={() => setShowModal(false)}
-      />
-      )  :
-      Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
-        <User_Modal
-        isVisible={showModal}
-        onClose={() => setShowModal(false)}
-      />
-      ):
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)} />}
+          isVisible={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      ) : Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+        <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+      ) : (
+        <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 };

@@ -6,6 +6,7 @@ export type reservationAdd_Props = {
 }
 
 export type reservation_Props = {
+  id: string
   name: string
   tours: number
   reservationDate: string

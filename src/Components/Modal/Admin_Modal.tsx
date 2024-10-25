@@ -1,7 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IoClose } from "react-icons/io5";
+import { toast } from "react-toastify";
 import "../../app/style.css";
 
 const Admin_Modal = ({
@@ -15,6 +18,16 @@ const Admin_Modal = ({
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
   };
+  const { push } = useRouter();
+  function Logout() {
+    toast.info("Deconnecter", {
+      autoClose: 1000,
+    });
+    setTimeout(() => {
+      window.localStorage.clear();
+      push("/Accueil");
+    }, 1500);
+  }
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-end items-center"
@@ -31,7 +44,13 @@ const Admin_Modal = ({
           <Link href={"/Admin/User"}>Utilisateur</Link>
           <Link href={"/Admin/Car"}>Voitures</Link>
           <Link href={"/Admin/Reservation"}>Réservations</Link>
-          <Link href={"/"}>Deconnexion</Link>
+          <button
+            onClick={() => {
+              Logout();
+            }}
+          >
+            Deconnexion
+          </button>
         </ul>
       </div>
     </div>

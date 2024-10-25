@@ -5,21 +5,22 @@ import Header from "@/Components/H.F/Header";
 import Admin_Modal from "@/Components/Modal/Admin_Modal";
 import Modal from "@/Components/Modal/Modal";
 import User_Modal from "@/Components/Modal/User_Modal";
-import { getAllReservation } from "@/Services/reservation";
-import { reservation_Props } from "@/Utils/reservation_type";
+import { deleteUser, getAllUser } from "@/Services/admin";
+import { user_Props } from "@/Utils/user_type";
 import { useEffect, useState } from "react";
+import { MdDeleteOutline } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const page = () => {
+  const [allUser, setAllUser] = useState<user_Props[]>();
   const [showModal, setShowModal] = useState(false);
   const Role = window.localStorage.getItem("Role");
-  const [allReservation, setAllReservation] = useState<reservation_Props[]>()
 
   useEffect(() => {
-    getAllReservation().then((res) => {
-      setAllReservation(res.data)
-    })
-  }, [])
+    getAllUser().then((res) => {
+      setAllUser(res.data);
+    });
+  }, []);
   return (
     <div className="flex flex-col items-center bg-[#FEF4F4]">
       <Header />
@@ -30,17 +31,28 @@ const page = () => {
         <RxHamburgerMenu className="text-2xl" />
         <p className="font_family">Menu</p>
       </div>
-      <h1 className="font-bold text-[#212121]">Réservations</h1>
-      <section className="">
-        {allReservation && allReservation.map((reservation) => {
-          return (
-            <div key={reservation.id} className="flex justify-between w-[320px] text-[#212121] bg-[#FCBFBF] p-2 mt-2 md:w-[480px] md:text-[16px] lg:w-[600px] lg:text-[20px]">
-              <p>{reservation.name}</p>
-              <p>{reservation.reservationDate}</p>
-              <p>{reservation.tours}</p>
-            </div>
-          )
-        })}
+      <section className="flex flex-col items-center mt-4">
+        <ul className="flex justify-between w-[330px] border-2 border-[#212121] font-bold text-[#212121] md:w-[480px] lg:w-[600px] p-2">
+          <li>Utilisateur</li>
+          <li>Email</li>
+          <li>IsActive</li>
+        </ul>
+        {allUser &&
+          allUser.map((user) => {
+            return (
+              <div
+                key={user.id}
+                className="text-black flex text-[14px] justify-between w-[330px] bg-[#FCBFBF] md:w-[480px] md:text-[16px] lg:w-[600px] lg:text-[20px] p-2"
+              >
+                <p>{user.firstName}</p>
+                <p>{user.email}</p>
+                <p>{String(user.isActive)}</p>
+                <MdDeleteOutline className="text-[20px]" onClick={() => {
+                  deleteUser(user.id)
+                }} />
+              </div>
+            );
+          })}
       </section>
       <Footer />
       {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (

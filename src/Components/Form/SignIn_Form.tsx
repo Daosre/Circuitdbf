@@ -33,7 +33,7 @@ const SignIn_Form = () => {
             autoClose: 1500,
           });
           setTimeout(() => {
-            push("/SignUp");
+            push("/Accueil");
           }, 1500);
         })
         .catch((e) => toast(e));

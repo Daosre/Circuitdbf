@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IoClose } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Admin_Panel_Modal = ({
   isVisible,
@@ -9,10 +12,20 @@ const Admin_Panel_Modal = ({
   isVisible: any;
   onClose: any;
 }) => {
+  const { push } = useRouter();
   if (!isVisible) return null;
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
   };
+  function Logout() {
+    toast.info("Deconnecter", {
+      autoClose: 1000,
+    });
+    setTimeout(() => {
+      window.localStorage.clear();
+      push("/Accueil");
+    }, 1500);
+  }
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-end items-center"
@@ -27,7 +40,13 @@ const Admin_Panel_Modal = ({
         <ul className=" flex flex-col text-center gap-5 text-[#212121] font-bold text-[16px] font_family md:gap-7 lg:gap-10">
           <Link href={"/Accueil"}>Accueil</Link>
           <Link href={"/Admin/Admin_Panel"}>Admin Panel</Link>
-          <Link href={"/Selection"}>Deconnexion</Link>
+          <button
+            onClick={() => {
+              Logout();
+            }}
+          >
+            Deconnexion
+          </button>
         </ul>
       </div>
     </div>
