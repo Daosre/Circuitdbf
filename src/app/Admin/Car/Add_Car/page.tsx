@@ -9,7 +9,7 @@ import User_Modal from "@/Components/Modal/User_Modal";
 import { addCar, addImageCar } from "@/Services/car";
 import { carAdd_Props } from "@/Utils/car_type";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { toast } from "react-toastify";
@@ -17,7 +17,14 @@ import { toast } from "react-toastify";
 const page = () => {
   const [showModal, setShowModal] = useState(false);
   const { push } = useRouter();
-  const Role = window.localStorage.getItem("Role");
+  const [roleLS, setRoleLS] = useState("")
+  
+  useEffect(() => {
+    const Role = window.localStorage.getItem("Role")
+    if( Role) {
+      setRoleLS(Role)
+    }
+  }, [])
   const {
     register,
     handleSubmit,
@@ -117,12 +124,12 @@ const page = () => {
         </button>
       </form>
       <Footer />
-      {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
