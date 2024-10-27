@@ -15,9 +15,6 @@ const Admin_Modal = ({
   onClose: any;
 }) => {
   if (!isVisible) return null;
-  const handleClose = (e) => {
-    if (e.target.id === "wrapper") onClose();
-  };
   const { push } = useRouter();
   function Logout() {
     toast.info("Deconnecter", {
@@ -25,14 +22,14 @@ const Admin_Modal = ({
     });
     setTimeout(() => {
       window.localStorage.clear();
+      window.location.reload();
       push("/Accueil");
     }, 1500);
   }
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-end items-center"
-      id="wrapper"
-      onClick={handleClose}
+      onClick={() => onClose()}
     >
       <div className="bg-[#FCBFBF] w-48 h-full flex flex-col text-center justify-center items-center md:w-64 lg:w-80">
         <IoClose

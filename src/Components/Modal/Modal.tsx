@@ -6,14 +6,10 @@ import "../../app/style.css";
 
 const Modal = ({ isVisible, onClose }: { isVisible: any; onClose: any }) => {
   if (!isVisible) return null;
-  const handleClose = (e) => {
-    if (e.target.id === "wrapper") onClose();
-  };
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-end items-center"
-      id="wrapper"
-      onClick={handleClose}
+      onClick={() => onClose()}
     >
       <div className="bg-[#FCBFBF] w-48 h-full flex flex-col text-center justify-center items-center md:w-64 lg:w-80">
         <IoClose

@@ -6,7 +6,7 @@ import Header from "@/Components/H.F/Header";
 import Admin_Modal from "@/Components/Modal/Admin_Modal";
 import Modal from "@/Components/Modal/Modal";
 import User_Modal from "@/Components/Modal/User_Modal";
-import { addCar } from "@/Services/car";
+import { addCar, addImageCar } from "@/Services/car";
 import { carAdd_Props } from "@/Utils/car_type";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,23 +23,37 @@ const page = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<carAdd_Props>();
-  const onSubmit: SubmitHandler<carAdd_Props> = (data) => {
-    addCar(data)
-      .then((res) => {
-        if (res.status === 403) {
-          toast.error(res.response.data.message);
+  const onSubmit: SubmitHandler<carAdd_Props> = async (data) => {
+    if (data.image && data.image[0]) {
+      const fileData = new FormData();
+      fileData.append("file", data.image[0]);
+      try {
+        const uploadRes = await addImageCar(fileData);
+        const filename = uploadRes.data.file;
+        const carData = {
+          name: data.name,
+          description: data.description,
+          price: data.price,
+          image: filename,
+        };
+        await addCar(carData).then((res) => {
+          if (res.status === 403) {
+            toast.error(res.response.data.message);
+          }
+          if (res.status === 400) {
+            toast.error(res.response.data.message);
+          }
+          if (res.status === 201) {
+            toast.success("Crée avec succès");
+            push("/Selection")
+          } 
         }
-        if (res.status === 400) {
-          toast.error(res.response.data.message);
-        }
-        if (res.status === 201) {
-          toast.success("Crée avec succès");
-        }
-        setTimeout(() => {
-          push("/");
-        }, 1500);
-      })
-      .catch((e) => {});
+      );
+      } catch (error) {
+        toast.error("DEFEAT");
+        console.log(error);
+      }
+    }
   };
 
   return (
@@ -54,7 +68,7 @@ const page = () => {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-[#FCBFBF] text-bold text-[#212121] w-[350px] h-[600px] flex flex-col items-center gap-10 rounded-[10px] p-4 mt-5"
+        className="bg-[#FCBFBF] text-bold text-[#212121] w-[350px] h-[800px] flex flex-col items-center gap-10 rounded-[10px] p-4 mt-5"
       >
         <label htmlFor="" className="flex flex-col gap-1">
           Nom :
@@ -76,7 +90,25 @@ const page = () => {
           />
           {errors.description && <ErrorMsg error={"Description"} />}
         </label>
-        <input type="file" className="w-[300px]" />
+        <label htmlFor="" className="flex flex-col gap-1">
+          Prix :
+          <input
+            type="number"
+            placeholder="Entrer un prix ici..."
+            className="rounded-[10px] p-1 text-[12px] w-[250px] h-[50px] text-center"
+            {...register("price", { required: true })}
+          />
+          {errors.price && <ErrorMsg error={"Prix"} />}
+        </label>
+        <label htmlFor="" className="flex flex-col gap-1">
+          Image :
+          <input
+            type="file"
+            className="w-[250px]"
+            {...register("image", { required: true })}
+          />
+          {errors.image && <ErrorMsg error={"Image"} />}
+        </label>
         <button
           type="submit"
           className="bg-[#FD3131] drop-shadow-[0_2px_3px_#212121] p-2 text-[#F2F2F2] font-bold rounded-[10px] w-[200px] "

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { toast } from "react-toastify";
 import { car_Props, carAdd_Props } from "../Utils/car_type";
@@ -47,6 +48,35 @@ export async function addCar(car_Props: carAdd_Props) {
         image: car_Props.image,
         price: Number(car_Props.price),
       },
+      axiosConfig
+    )
+    .then((res) => {
+      return res;
+    })
+    .catch((e) => {
+      toast.error(e.response.data.message, {
+        position: "top-right",
+      });
+      return e;
+    });
+}
+
+//Add Image Car
+export async function addImageCar(image: any) {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}image/upload`;
+
+  const axiosConfig = {
+    headers: {
+      "content-type": "multipart/form-data",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+    },
+  };
+  return axios
+    .post(
+      url,
+      image,
       axiosConfig
     )
     .then((res) => {
