@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import "../style.css";
 
 const page = () => {
   const [showModal, setShowModal] = useState(false);
@@ -43,14 +44,22 @@ const page = () => {
         {carAll &&
           carAll.map((car) => {
             return (
-              <div key={car.id} className="text-[#212121]">
-                {car.name}
+              <div
+                key={car.id}
+                className="text-[#212121] text-center flex flex-col items-center rounded-[10px] w-[300px] my-10 bg-[#F2F2F2] shadow_card md:w-96 lg:w-[600px]"
+              >
                 <Image
-                  width={100}
-                  height={100}
+                  width={300}
+                  height={300}
                   src={`http://localhost:3000/image/view/${car.image}`}
                   alt=""
+                  className="rounded-t-[10px] md:w-96 lg:w-[600px]"
                 />
+                <h2 className="font-bold p-2 font_family">{car.name}</h2>
+                <p className="p-4">{car.description}</p>
+                <button className="bg-[#FD3131] text-[#F2F2F2] p-2 rounded-[10px] mb-2 shadow_card">
+                  Réservez votre passage
+                </button>
               </div>
             );
           })}
