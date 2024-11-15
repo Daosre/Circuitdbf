@@ -65,7 +65,7 @@ const page = () => {
           })}
       </section>
       <Footer />
-      {roleLS === "93a121fb-c77f-Ò4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}

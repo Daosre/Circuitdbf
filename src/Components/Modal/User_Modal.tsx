@@ -22,9 +22,8 @@ const User_Modal = ({
     });
     setTimeout(() => {
       window.localStorage.clear();
-      window.location.reload()
       push("/Accueil");
-    }, 1500);
+    }, 1000);
   }
   return (
     <div

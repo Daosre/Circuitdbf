@@ -22,7 +22,6 @@ const Admin_Modal = ({
     });
     setTimeout(() => {
       window.localStorage.clear();
-      window.location.reload();
       push("/Accueil");
     }, 1500);
   }
