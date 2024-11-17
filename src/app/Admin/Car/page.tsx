@@ -70,6 +70,7 @@ const page = () => {
                       className="cursor-pointer"
                       onClick={() => {
                         deleteCar(car.id);
+                        window.location.reload()
                       }}
                     />
                   </Link>

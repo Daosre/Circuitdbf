@@ -17,14 +17,14 @@ import { toast } from "react-toastify";
 const page = () => {
   const [showModal, setShowModal] = useState(false);
   const { push } = useRouter();
-  const [roleLS, setRoleLS] = useState("")
-  
+  const [roleLS, setRoleLS] = useState("");
+
   useEffect(() => {
-    const Role = window.localStorage.getItem("Role")
-    if( Role) {
-      setRoleLS(Role)
+    const Role = window.localStorage.getItem("Role");
+    if (Role) {
+      setRoleLS(Role);
     }
-  }, [])
+  }, []);
   const {
     register,
     handleSubmit,
@@ -44,6 +44,7 @@ const page = () => {
           image: filename,
         };
         await addCar(carData).then((res) => {
+          console.log(res);
           if (res.status === 403) {
             toast.error(res.response.data.message);
           }
@@ -52,13 +53,11 @@ const page = () => {
           }
           if (res.status === 201) {
             toast.success("Crée avec succès");
-            push("/Selection")
-          } 
-        }
-      );
+            push("/Selection");
+          }
+        });
       } catch (error) {
         toast.error("DEFEAT");
-        console.log(error);
       }
     }
   };
@@ -87,7 +86,7 @@ const page = () => {
           />
           {errors.name && <ErrorMsg error={"Nom"} />}
         </label>
-        <label htmlFor="Description" className=" flex flex-col gap-1">
+        <label htmlFor="" className=" flex flex-col gap-1">
           Description :
           <input
             type="text"

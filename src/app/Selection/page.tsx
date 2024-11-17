@@ -22,6 +22,7 @@ const page = () => {
       setRoleLS(Role);
     }
   }, []);
+
   const [carAll, setCarAll] = useState<car_Props[]>();
   const { push } = useRouter();
   useEffect(() => {
@@ -29,6 +30,7 @@ const page = () => {
       setCarAll(res.data);
     });
   }, []);
+  
   return (
     <div className="bg-[#FEF4F4] flex flex-col items-center">
       <Header />

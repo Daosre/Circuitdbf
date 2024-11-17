@@ -26,6 +26,7 @@ export async function getAllCar() {
       return e;
     });
 }
+
 export async function getImage() {
   const url = `${process.env.NEXT_PUBLIC_API_URL}view/:filename`;
 
