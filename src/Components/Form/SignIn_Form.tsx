@@ -27,7 +27,7 @@ const SignIn_Form = () => {
       signIn(data)
         .then((res) => {
           window.localStorage.setItem("token", res.data.token.access_token);
-          window.localStorage.setItem("Role", res.data.role.id);
+          window.localStorage.setItem("Role", res.data.role.name);
           toast.success("Login Successful ✅", {
             position: "top-center",
             autoClose: 1500,

@@ -27,10 +27,11 @@ const page = () => {
   const { push } = useRouter();
   useEffect(() => {
     getAllCar().then((res) => {
+      console.log(res);
       setCarAll(res.data);
     });
   }, []);
-  
+
   return (
     <div className="bg-[#FEF4F4] flex flex-col items-center">
       <Header />
@@ -53,7 +54,7 @@ const page = () => {
                 <Image
                   width={300}
                   height={300}
-                  src={`http://localhost:3000/image/view/${car.image}`}
+                  src={`https://circuitdubonheur-366a75058d05.herokuapp.com/image/view/${car.image}`}
                   alt=""
                   className="rounded-t-[10px] md:w-96 lg:w-[600px]"
                 />
@@ -67,12 +68,12 @@ const page = () => {
           })}
       </section>
       <Footer />
-      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "Admin" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : roleLS === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "User" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />

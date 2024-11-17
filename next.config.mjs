@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ["localhost"],
+    domains: ["circuitdubonheur-366a75058d05.herokuapp.com"],
     remotePatterns: [
       {
         protocol: "https",
