@@ -7,7 +7,6 @@ import User_Modal from "@/Components/Modal/User_Modal";
 import { getAllCar } from "@/Services/car";
 import { car_Props } from "@/Utils/car_type";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../style.css";
@@ -24,7 +23,6 @@ const Page = () => {
   }, []);
 
   const [carAll, setCarAll] = useState<car_Props[]>();
-  const { push } = useRouter();
   useEffect(() => {
     getAllCar().then((res) => {
       setCarAll(res.data);
