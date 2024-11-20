@@ -12,14 +12,20 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 const page = () => {
   const [showModal, setShowModal] = useState(false);
-  const Role = window.localStorage.getItem("Role");
-  const [allReservation, setAllReservation] = useState<reservation_Props[]>()
+  const [roleLS, setRoleLS] = useState("");
+  const [allReservation, setAllReservation] = useState<reservation_Props[]>();
 
   useEffect(() => {
-    getAllReservation().then((res) => {
-      setAllReservation(res.data)
-    })
-  }, [])
+    getAllReservation().then((res) => {
+      setAllReservation(res.data);
+    });
+  }, []);
+  useEffect(() => {
+    const Role = window.localStorage.getItem("Role");
+    if (Role) {
+      setRoleLS(Role);
+    }
+  }, []);
   return (
     <div className="flex flex-col items-center bg-[#FEF4F4]">
       <Header />
@@ -32,23 +38,27 @@ const page = () => {
       </div>
       <h1 className="font-bold text-[#212121]">Réservations</h1>
       <section className="">
-        {allReservation && allReservation.map((reservation) => {
-          return (
-            <div key={reservation.id} className="flex justify-between w-[320px] text-[#212121] bg-[#FCBFBF] p-2 mt-2 md:w-[480px] md:text-[16px] lg:w-[600px] lg:text-[20px]">
-              <p>{reservation.name}</p>
-              <p>{reservation.reservationDate}</p>
-              <p>{reservation.tours}</p>
-            </div>
-          )
-        })}
+        {allReservation &&
+          allReservation.map((reservation) => {
+            return (
+              <div
+                key={reservation.id}
+                className="flex justify-between w-[320px] text-[#212121] bg-[#FCBFBF] p-2 mt-2 md:w-[480px] md:text-[16px] lg:w-[600px] lg:text-[20px]"
+              >
+                <p>{reservation.name}</p>
+                <p>{reservation.reservationDate}</p>
+                <p>{reservation.tours}</p>
+              </div>
+            );
+          })}
       </section>
       <Footer />
-      {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "Admin" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "User" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />

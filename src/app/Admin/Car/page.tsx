@@ -54,23 +54,23 @@ const page = () => {
           Ajouter
         </button>
       </section>
-      <section className="bg-[#FCBFBF] w-[360px] p-2 mt-4">
+      <section className="bg-[#FCBFBF] w-[360px] p-2 mt-4 flex flex-col gap-10">
         {carAll &&
           carAll.map((car) => {
             return (
               <div key={car.id} className="flex justify-between">
-                {car.name}
+                <h2 className="text-[#212121]">{car.name}</h2>
                 <section className="flex items-center gap-2">
                   <Link href={""}>
-                    <FiEdit className="cursor-pointer" />
+                    <FiEdit className="cursor-pointer text-[#212121]" />
                   </Link>
                   <Link href={""}>
                     {" "}
                     <RiDeleteBin6Line
-                      className="cursor-pointer"
+                      className="cursor-pointer text-[#212121]"
                       onClick={() => {
                         deleteCar(car.id);
-                        window.location.reload()
+                        window.location.reload();
                       }}
                     />
                   </Link>
@@ -80,12 +80,12 @@ const page = () => {
           })}
       </section>
       <Footer />
-      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "Admin" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : roleLS === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "User" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
