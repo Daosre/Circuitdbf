@@ -55,8 +55,8 @@ const Page = () => {
             push("/Selection");
           }
         });
-      } catch (e) {
-        toast.error("DEFEAT");
+      } catch (error) {
+        console.log(error);
       }
     }
   };
