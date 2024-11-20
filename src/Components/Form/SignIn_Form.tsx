@@ -4,7 +4,6 @@ import { signIn_Props } from "@/Utils/auth_type";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ErrorMsg from "../Error/Error";
@@ -71,17 +70,6 @@ const SignIn_Form = () => {
           ici
         </Link>
       </p>
-      <div>
-        <ReCAPTCHA
-          sitekey={`${process.env.NEXT_PUBLIC_API_CAPTCHA_KEY}`}
-          onChange={onChange}
-        />
-        {!validate && (
-          <p className="text-[#fd3131] text-[12px] text-center">
-            Nécessite la validation du CAPTCHA
-          </p>
-        )}
-      </div>
       <button type="submit" className="btn_Form">
         Connexion
       </button>
