@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="mt-10 md:w-full">
+    <div className="mt-10 bg-[#212121] md:w-full">
       <div className="bg-[#212121] flex">
         <section className="flex flex-col items-center text-center gap-2 p-2 shadow-[0_0_4px_2px_#F2F2F2] rounded-[10px] m-2 bg-[#4A4A4A] md:w-2/3">
           <h2 className="h2">Circuit Du Bonheur</h2>
