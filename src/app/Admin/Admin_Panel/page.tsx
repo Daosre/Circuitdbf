@@ -6,14 +6,20 @@ import Admin_Modal from "@/Components/Modal/Admin_Modal";
 import Modal from "@/Components/Modal/Modal";
 import User_Modal from "@/Components/Modal/User_Modal";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../../style.css";
 
 const Page = () => {
   const [showModal, setShowModal] = useState(false);
-  const Role = window.localStorage.getItem("Role");
+  const [roleLS, setRoleLS] = useState("");
 
+  useEffect(() => {
+    const Role = window.localStorage.getItem("Role");
+    if (Role) {
+      setRoleLS(Role);
+    }
+  }, []);
   return (
     <div className="bg-[#FEF4F4] flex flex-col items-center font_family">
       <Header />
@@ -35,12 +41,12 @@ const Page = () => {
         </ul>
       </section>
       <Footer />
-      {Role === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : Role === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
