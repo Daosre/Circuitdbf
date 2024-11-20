@@ -3,7 +3,6 @@ import { signIn } from "@/Services/auth";
 import { signIn_Props } from "@/Utils/auth_type";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ErrorMsg from "../Error/Error";
@@ -11,31 +10,25 @@ import "../Form/form_css.css";
 
 const SignIn_Form = () => {
   const { push } = useRouter();
-  const [validate, setValidate] = useState<string>();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function onChange(value: any) {
-    setValidate(value);
-  }
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<signIn_Props>();
   const onSubmit: SubmitHandler<signIn_Props> = (data) => {
-    if (validate)
-      signIn(data)
-        .then((res) => {
-          window.localStorage.setItem("token", res.data.token.access_token);
-          window.localStorage.setItem("Role", res.data.role.name);
-          toast.success("Login Successful ✅", {
-            position: "top-center",
-            autoClose: 1500,
-          });
-          setTimeout(() => {
-            push("/Accueil");
-          }, 1500);
-        })
-        .catch((e) => toast(e));
+    signIn(data)
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.token.access_token);
+        window.localStorage.setItem("Role", res.data.role.name);
+        toast.success("Login Successful ✅", {
+          position: "top-center",
+          autoClose: 1500,
+        });
+        setTimeout(() => {
+          push("/Accueil");
+        }, 1500);
+      })
+      .catch((e) => toast(e));
   };
   return (
     <form
