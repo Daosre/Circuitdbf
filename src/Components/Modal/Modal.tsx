@@ -20,7 +20,7 @@ const Modal = ({ isVisible, onClose }: { isVisible: any; onClose: any }) => {
           <Link href={"/Accueil"}>Accueil</Link>
           <Link href={"/SignUp"}>Inscription</Link>
           <Link href={"/Selection"}>Nos Voitures</Link>
-          <Link href={"/Contact"}>Contactez-Nous</Link>
+          <Link href={"/Contact"}>Contactez&ndash;Nous</Link>
           <Link href={"/SignIn"}>Connexion</Link>
         </ul>
       </div>

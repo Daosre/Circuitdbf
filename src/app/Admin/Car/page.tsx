@@ -15,7 +15,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../../style.css";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [roleLS, setRoleLS] = useState("");
 
@@ -94,4 +94,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

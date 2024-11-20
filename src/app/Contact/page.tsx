@@ -4,7 +4,7 @@ import Header from "@/Components/H.F/Header";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 
-const page = () => {
+const Page = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   const handleBack = () => {
@@ -26,7 +26,7 @@ const page = () => {
           <p>contact@cdb.com</p>
         </section>
         <section className="text-[#212121] gap-1 flex">
-          <p className="font-bold ">Numéro :</p>
+          <p className="font-bold ">Num&eacute;ro :</p>
           <p>+33 1 23 45 67 89</p>
         </section>
         <section className="text-[#212121]">
@@ -39,4 +39,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -10,7 +10,7 @@ import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../../style.css";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const Role = window.localStorage.getItem("Role");
 
@@ -31,7 +31,7 @@ const page = () => {
         <ul className="text-[#212121] font-bold flex flex-col text-center gap-10 text-sm">
           <Link href={"/User"}>Utilisateurs</Link>
           <Link href={"/Admin/Car"}>Voitures</Link>
-          <Link href={"/Reservation"}>Réservations</Link>
+          <Link href={"/Reservation"}>R&eacute;servations</Link>
         </ul>
       </section>
       <Footer />
@@ -49,4 +49,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

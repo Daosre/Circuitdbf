@@ -38,7 +38,7 @@ const User_Modal = ({
         <ul className=" flex flex-col text-center gap-5 text-[#212121] font-bold text-[16px] font_family md:gap-7 lg:gap-10">
           <Link href={"/Accueil"}>Accueil</Link>
           <Link href={"#"}>Nos Voitures</Link>
-          <Link href={"#"}>Contactez-Nous</Link>
+          <Link href={"#"}>Contactez&ndash;Nous</Link>
           <button
             onClick={() => {
               Logout();

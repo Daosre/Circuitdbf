@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import ErrorMsg from "@/Components/Error/Error";
 import Footer from "@/Components/H.F/Footer";
@@ -14,7 +13,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { toast } from "react-toastify";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const { push } = useRouter();
   const [roleLS, setRoleLS] = useState("");
@@ -136,4 +135,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default Page;

@@ -10,7 +10,7 @@ import { reservation_Props } from "@/Utils/reservation_type";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [roleLS, setRoleLS] = useState("");
   const [allReservation, setAllReservation] = useState<reservation_Props[]>();
@@ -36,7 +36,7 @@ const page = () => {
         <RxHamburgerMenu className="text-2xl" />
         <p className="font_family">Menu</p>
       </div>
-      <h1 className="font-bold text-[#212121]">Réservations</h1>
+      <h1 className="font-bold text-[#212121]">R&eacute;servations</h1>
       <section className="">
         {allReservation &&
           allReservation.map((reservation) => {
@@ -67,4 +67,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

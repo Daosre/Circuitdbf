@@ -13,7 +13,9 @@ const Footer = () => {
           <Link href="/Contact">contact@cdb.com</Link>
         </section>
         <section className="flex flex-col text-center items-center mt-2 mb-2 mr-2 gap-2 p-2 shadow-[0_0_4px_2px_#F2F2F2] rounded-[10px] bg-[#4A4A4A] md:w-1/2">
-          <h2 className="font-bold text-[16px] md:text-[22px]">Suivez-nous!</h2>
+          <h2 className="font-bold text-[16px] md:text-[22px]">
+            Suivez&ndash;nous!
+          </h2>
           <div className="flex items-center gap-1 font_family">
             <FaInstagram className="text-2xl" />
             <Link href="#">@Cdb</Link>
@@ -31,14 +33,17 @@ const Footer = () => {
       <div className="bg-[#212121]">
         <ul className="flex flex-col items-center gap-2">
           <li className="">
-            <Link href={"#"}>© Copyright</Link>
+            <Link href={"#"}>&copy; Copyright</Link>
           </li>
           <li className="">
             <Link href={"/Mentionslegales"}>Mention Légales</Link>
           </li>
           <li className="">
-            <Link href={"#"}>Conditions générales des ventes</Link>
-          </li>        </ul>
+            <Link href={"#"}>
+              Conditions g&eacute;n&eacute;rales des ventes
+            </Link>
+          </li>{" "}
+        </ul>
       </div>
     </div>
   );

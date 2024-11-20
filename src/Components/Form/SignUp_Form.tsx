@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
+import { signUp } from "@/Services/auth";
 import { signUp_Props } from "@/Utils/auth_type";
 import { schema } from "@/Validation/validateurForm";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,7 +10,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ErrorMsg from "../Error/Error";
 import "../Form/form_css.css";
-import { signUp } from "@/Services/auth";
 const SignUp_Form = () => {
   const { push } = useRouter();
   const {
@@ -43,7 +43,7 @@ const SignUp_Form = () => {
         className="flex flex-col justify-center gap-4 p-4 items-center form_SignUp rounded md:w-96 lg:w-[600px]"
       >
         <label htmlFor="firstName" className="label_style">
-          Prénom :
+          Pr&eacute;nom :
           <input
             type="text"
             id="firstName"
@@ -101,14 +101,14 @@ const SignUp_Form = () => {
         </label>
         <label htmlFor="" className="text-center m-2 text-sm font_family">
           <input type="checkbox" className="mr-2" {...register("checkbox")} />
-          J'accepte les termes et conditions
+          J&rsquo;accepte les termes et conditions
         </label>
         <p className="text-[12px] text-[#fd3131]">{errors.checkbox?.message}</p>
         <button type="submit" className="btn_Form">
-          S'inscrire
+          S&rsquo;inscrire
         </button>
         <p className="text-[12px]">
-          Vous êtes déjà inscrit ? Cliquer{" "}
+          Vous &ecirc;tes d&eacute;j&agrave; inscrit ? Cliquer{" "}
           <Link href={"/SignIn"} className="text-[#fd3131]">
             ici
           </Link>

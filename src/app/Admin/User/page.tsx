@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-const page = () => {
+const Page = () => {
   const [allUser, setAllUser] = useState<user_Props[]>();
   const [roleLS, setRoleLS] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -75,4 +75,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

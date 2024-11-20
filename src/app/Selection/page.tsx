@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../style.css";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const [roleLS, setRoleLS] = useState("");
 
@@ -60,7 +60,7 @@ const page = () => {
                 <h2 className="font-bold p-2 font_family">{car.name}</h2>
                 <p className="p-4">{car.description}</p>
                 <button className="bg-[#FD3131] text-[#F2F2F2] p-2 rounded-[10px] mb-2 shadow_card">
-                  Réservez votre passage
+                  R&eacute;servez votre passage
                 </button>
               </div>
             );
@@ -81,4 +81,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

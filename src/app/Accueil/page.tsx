@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "../style.css";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = useState(false);
   const { push } = useRouter();
   const [roleLS, setRoleLS] = useState("");
@@ -67,9 +67,9 @@ const page = () => {
           className="rounded-[10px] mt-2 md:w-80 lg:w-96"
         />
         <article className="bg-[#FCBFBF] text-[#212121] text-center p-2 mt-2 md:w-80 lg:w-96">
-          <h2 className="font-bold">Conduisez la voiture de vos rêves !</h2>
+          <h2 className="font-bold">Conduisez la voiture de vos r&ecirc;ves !</h2>
           <p className="text-sm">
-            Nôtre sélection de voiture assez grande venez voir ce qui vous
+            N&ocirc;tre s&eacute;lection de voiture assez grande venez voir ce qui vous
             intéressent
           </p>
         </article>
@@ -95,4 +95,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
