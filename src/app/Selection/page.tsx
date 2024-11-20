@@ -53,7 +53,7 @@ const page = () => {
                 <Image
                   width={300}
                   height={300}
-                  src={`http://circuitdubonheur-366a75058d05.herokuapp.com/image/view/${car.image}`}
+                  src={`https://circuitdubonheur-366a75058d05.herokuapp.com/image/view/${car.image}`}
                   alt=""
                   className="rounded-t-[10px] md:w-96 lg:w-[600px]"
                 />
