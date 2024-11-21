@@ -53,9 +53,15 @@ const Page = () => {
                 <p>{user.firstName}</p>
                 <p>{user.email}</p>
                 <p>{String(user.isActive)}</p>
-                <MdDeleteOutline className="text-[20px]" onClick={() => {
-                  deleteUser(user.id)
-                }} />
+                <MdDeleteOutline
+                  className="text-[20px]"
+                  onClick={() => {
+                    deleteUser(user.id);
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 1000);
+                  }}
+                />
               </div>
             );
           })}
