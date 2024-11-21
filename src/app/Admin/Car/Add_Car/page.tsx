@@ -122,12 +122,12 @@ const Page = () => {
         </button>
       </form>
       <Footer />
-      {roleLS === "93a121fb-c77f-4352-93bc-90b0e3bd80b5" ? (
+      {roleLS === "Admin" ? (
         <Admin_Modal
           isVisible={showModal}
           onClose={() => setShowModal(false)}
         />
-      ) : roleLS === "7c6862a7-82f9-4254-adab-9c4dd826c2b2" ? (
+      ) : roleLS === "User" ? (
         <User_Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       ) : (
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
